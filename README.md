@@ -3,6 +3,8 @@
 ## Colorscheme
 
 - [catppuccin-mocha](https://github.com/catppuccin/nvim)
+![screenshot](./screenshots/screenshot_1.png)
+![screenshot](./screenshots/screenshot_2.png)
 
 ## List of plugins (managed by Lazy)
 
