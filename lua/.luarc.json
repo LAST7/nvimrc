@@ -1,0 +1,8 @@
+{
+    "diagnostics.globals": [
+        "vim",
+        "logo",
+        "lualine_palenight",
+        "_config"
+    ]
+}
