@@ -6,6 +6,7 @@ return {
         "hrsh7th/cmp-buffer",
         "hrsh7th/cmp-path",
         "hrsh7th/cmp-calc",
+        "amarakon/nvim-cmp-fonts",
         "L3MON4D3/LuaSnip",
         "saadparwaiz1/cmp_luasnip",
         "rafamadriz/friendly-snippets",
@@ -19,12 +20,29 @@ return {
         require("luasnip/loaders/from_vscode").lazy_load()
         vim.opt.completeopt = "menu,menuone,noselect"
 
+        local WIDE_HEIGHT = 40
         local config = {
             snippet = {
                 expand = function(args)
                     luasnip.lsp_expand(args.body)
                 end,
             },
+            window = {
+                completion = {
+                    border = { '╭', '─', '╮', '│', '╯', '─', '╰', '│' },
+                    winhighlight = 'Normal:Pmenu,FloatBorder:CmpBorder,CursorLine:PmenuSel,Search:None',
+                    scrolloff = 0,
+                    col_offset = 0,
+                    side_padding = 1,
+                    scrollbar = true,
+                },
+                documentation = {
+                    max_height = math.floor(WIDE_HEIGHT * (WIDE_HEIGHT / vim.o.lines)),
+                    max_width = math.floor((WIDE_HEIGHT * 2) * (vim.o.columns / (WIDE_HEIGHT * 2 * 16 / 9))),
+                    border = { '╭', '─', '╮', '│', '╯', '─', '╰', '│' },
+                    winhighlight = 'Normal:Pmenu,FloatBorder:CmpDocBorder,CursorLine:PmenuSel,Search:None',
+                    },
+                },
             mapping = cmp.mapping.preset.insert({
                 ["<S-Tab>"] = cmp.mapping.select_prev_item(), -- previous suggestion
                 ["<Tab>"] = cmp.mapping.select_next_item(), -- next suggestion
@@ -40,12 +58,25 @@ return {
                 { name = "luasnip" }, -- snippets
                 { name = "buffer" }, -- text within current buffer
                 { name = "path" }, -- file system paths
+                { name = "calc" }, -- calculator
+                -- replace space with dash when typing a name of a font
+                -- to avoid cmp restarting
+                { name = "fonts", option = { space_filter = "-" } }, -- fonts
             }),
             -- configure lspkind for vs-code like icons
             formatting = {
                 format = lspkind.cmp_format({
                     maxwidth = 50,
                     ellipsis_char = "...",
+                    mode = "symbol_text",
+                    menu = ({
+                        buffer = "[Buf]",
+                        nvim_lsp = "[LSP]",
+                        path = "[Path]",
+                        calc = "[Calc]",
+                        luasnip = "[Lua]",
+                        fonts = "[Font]",
+                    }),
                 }),
             },
         }

@@ -1,6 +1,7 @@
 -- check https://github.com/catppuccin/nvim#special-integrations for more configuration
 local config = {
     flavor = "mocha", -- latte, frappe, macchiato, mocha
+    floating_border = "on",
     background = {
         light = "latte",
         dark = "mocha",
@@ -53,6 +54,17 @@ local config = {
             },
         }
     },
+    custom_highlights = function (C)
+        return {
+            NormalFloat = { bg = C.surface0 },
+            TabLineSel = { bg = C.pink },
+            CmpBorder = { fg = C.yellow },
+            CmpDocBorder = { fg = C.rosewater },
+            Pmenu = { bg = C.none },
+            PmenuSel = { bg = C.overlay0 },
+            TelescopeBorder = { fg = C.blue },
+        }
+    end,
 }
 
 return {
@@ -60,8 +72,8 @@ return {
     lazy = false,
     name = "catppuccin",
     config = function ()
-        require("catppuccin").setup(config)
         -- setup must be called before loading
+        require("catppuccin").setup(config)
         vim.cmd.colorscheme "catppuccin-mocha"
     end
 }
