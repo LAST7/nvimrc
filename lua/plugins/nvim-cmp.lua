@@ -30,7 +30,7 @@ return {
             window = {
                 completion = {
                     border = { '╭', '─', '╮', '│', '╯', '─', '╰', '│' },
-                    winhighlight = 'Normal:Pmenu,FloatBorder:CmpBorder,CursorLine:PmenuSel,Search:None',
+                    winhighlight = 'Normal:CmpBG,FloatBorder:CmpBorder,CursorLine:CmpSel,Search:None',
                     scrolloff = 0,
                     col_offset = 0,
                     side_padding = 1,
@@ -40,7 +40,7 @@ return {
                     max_height = math.floor(WIDE_HEIGHT * (WIDE_HEIGHT / vim.o.lines)),
                     max_width = math.floor((WIDE_HEIGHT * 2) * (vim.o.columns / (WIDE_HEIGHT * 2 * 16 / 9))),
                     border = { '╭', '─', '╮', '│', '╯', '─', '╰', '│' },
-                    winhighlight = 'Normal:Pmenu,FloatBorder:CmpDocBorder,CursorLine:PmenuSel,Search:None',
+                    winhighlight = 'Normal:CmpBG,FloatBorder:CmpDocBorder,CursorLine:CmpSel,Search:None',
                     },
                 },
             mapping = cmp.mapping.preset.insert({

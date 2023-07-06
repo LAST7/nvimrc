@@ -2,7 +2,7 @@
 local config = {
     window = {
         border = "single", -- none, single, double, shadow
-        winblend = 20, -- value between 0-100. 100 for fully transparent
+        -- winblend = 20, -- value between 0-100. 100 for fully transparent
     },
 }
 

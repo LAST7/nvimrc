@@ -54,15 +54,27 @@ local config = {
             },
         }
     },
+    -- rosewater, flamingo, pink, mauve, red, maroon, peach, yellow...
+    -- more color groups: https://github.com/catppuccin/catppuccin#-palette
     custom_highlights = function (C)
         return {
-            NormalFloat = { bg = C.surface0 },
+            NormalFloat = { bg = C.none }, -- transparent
             TabLineSel = { bg = C.pink },
-            CmpBorder = { fg = C.yellow },
-            CmpDocBorder = { fg = C.rosewater },
             Pmenu = { bg = C.none },
             PmenuSel = { bg = C.overlay0 },
+
+            -- nvim-cmp
+            -- change values in `winhighlight`
+            CmpBorder = { fg = C.yellow },
+            CmpDocBorder = { fg = C.rosewater },
+            CmpBG = { link = "Pmenu" },
+            CmpSel = { link = "PmenuSel" },
+            -- telescope
+            -- https://github.com/nvim-telescope/telescope.nvim/wiki/FAQ#how-to-change-telescope-highlights-group
             TelescopeBorder = { fg = C.blue },
+            -- noice
+            -- https://github.com/folke/noice.nvim#-highlight-groups
+            NoicePopupmenuBorder = { link = "CmpBorder" },
         }
     end,
 }
