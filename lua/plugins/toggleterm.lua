@@ -15,14 +15,14 @@ local config = {
     start_in_insert = true,
     insert_mappings = true,
     close_on_exit = true,
-    -- shell = 
+    highlights = {
+        FloatBorder = {
+            guifg = "#89b4fa", -- catppuccin.mocha.blue
+        },
+    },
     float_opts = {
         border = "curved", -- "single", "double", "shadow", "curved"
         winblend = 0,
-        highlights = {
-            border = "Normal",
-            background = "Normal",
-        },
     },
     winbar = {
         enabled = true,

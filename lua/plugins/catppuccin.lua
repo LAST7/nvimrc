@@ -55,7 +55,7 @@ local config = {
         }
     },
     -- rosewater, flamingo, pink, mauve, red, maroon, peach, yellow...
-    -- more color groups: https://github.com/catppuccin/catppuccin#-palette
+    -- more colors: https://github.com/catppuccin/catppuccin#-palette
     custom_highlights = function (C)
         return {
             NormalFloat = { bg = C.none }, -- transparent
@@ -77,7 +77,11 @@ local config = {
             NoicePopupmenuBorder = { link = "CmpBorder" },
             -- flash
             -- https://github.com/folke/flash.nvim#-highlights
-            FlashLabel = { fg = C.red }
+            FlashLabel = { fg = C.base, bg = C.maroon },
+            FlashMatch = { fg = C.text, bg = C.surface2 },
+            FlashCurrent = { fg = C.base, bg = C.lavender },
+            -- neo-tree
+            NeoTreeFloatBorder = { link = "FloatBorder" }
         }
     end,
 }

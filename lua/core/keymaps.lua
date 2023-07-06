@@ -111,7 +111,8 @@ maps.n["<leader>ll"] = {
             label = { after = { 0, 0 } },
             pattern = "^",
         })
-    end
+    end,
+    desc = "flash to a line"
 }
 
 -- restart lsp server
