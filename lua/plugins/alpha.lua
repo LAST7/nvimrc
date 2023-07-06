@@ -40,9 +40,6 @@ local function footer()
 end
 
 
-math.randomseed(os.time())
-local header_color = "AlphaCol" .. math.random(11)
-
 local options = {
     header = {
         type = "text",

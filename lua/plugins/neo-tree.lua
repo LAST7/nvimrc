@@ -38,6 +38,7 @@ local config = {
 
 return {
     "nvim-neo-tree/neo-tree.nvim",
+    event = "VeryLazy",
     branch = "v2.x",
     dependencies = {
         "nvim-tree/nvim-web-devicons",

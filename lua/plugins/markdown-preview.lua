@@ -1,5 +1,6 @@
 return {
     "iamcco/markdown-preview.nvim",
+    event = "VeryLazy",
     cmd = "Markdown",
     build = "cd app && npm install",
     init = function()

@@ -1,4 +1,4 @@
-local config = {}
+local config = { }
 
 return {
     "numToStr/Comment.nvim",

@@ -1,6 +1,5 @@
 local config = {
     filetypes = { "*" },
-
 }
 
 return {

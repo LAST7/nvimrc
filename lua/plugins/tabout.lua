@@ -23,11 +23,11 @@ local config = {
 
 return {
     "abecodes/tabout.nvim",
+    event = "VeryLazy",
     dependencies = {
         "nvim-treesitter",
         "nvim-cmp",
     },
-    event = "VeryLazy",
     config = function ()
         require("tabout").setup(config)
     end

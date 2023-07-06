@@ -1,5 +1,6 @@
 return {
     "williamboman/mason.nvim", -- in charge of managing lsp servers, linters & formatters
+    event = "VeryLazy",
     dependencies = {
         "williamboman/mason-lspconfig.nvim", -- bridges gap b/w mason & lspconfig
         "jayp0521/mason-null-ls.nvim", -- bridges gap b/w mason & null-ls

@@ -12,6 +12,7 @@ local config = {
 
 return {
     "nvim-telescope/telescope.nvim",
+    event = "VeryLazy",
     version = "0.1.x",
     config = function ()
         require("telescope").load_extension("fzf")

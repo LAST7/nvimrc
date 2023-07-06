@@ -9,10 +9,10 @@ local config = {
 
 return {
     "windwp/nvim-autopairs", -- autoclose parens, brackets, quotes, etc...
+    event = "VeryLazy",
     dependencies = {
         "nvim-cmp",
     },
-    event = "VeryLazy",
     config = function ()
         require("nvim-autopairs").setup(config)
 
