@@ -59,7 +59,7 @@ local options = {
         },
         opts = {
             position = "center",
-            hl = header_color,
+            hl = "Function",
         },
     },
 
@@ -74,7 +74,7 @@ local options = {
             button("SPC t", "  Themes",       ":Telescope colorscheme<CR>"),
             button("SPC s", "  Settings",     ":e $MYVIMRC | :cd %:p:h | :split . | :wincmd w | :pwd<CR>"),
             button("SPC q", "  Exit Neovim",  ":qa<CR>"),
-            button("SPC z", "Z  Lazy", ":Lazy<CR>"), --鈴
+            button("SPC z", "Z  Lazy", ":Lazy<CR>"),
         },
         opts = { spacing = 1 },
     },
@@ -89,8 +89,6 @@ local options = {
     },
 }
 
--- options = require("core.utils").load_override(options, "goolord/alpha-nvim")
-
 local padd = vim.fn.max({ 2, vim.fn.floor(vim.fn.winheight(0) * 0.1) })
 
 local config = {
@@ -101,7 +99,35 @@ local config = {
         options.buttons,
         { type = "padding", val = 1 },
         options.footer,
-    }
+    },
+    -- hide the cursor using the `highlight-blend`(requires `termguicolors` to be true)
+    -- `blend = 100` means invisible
+    opts = {
+        setup = function ()
+            -- hide cursor when in alpha
+            vim.api.nvim_create_autocmd('User', {
+                pattern = 'AlphaReady',
+                desc = 'hide cursor for alpha',
+                callback = function ()
+                    local hl = vim.api.nvim_get_hl_by_name('Cursor', true)
+                    hl.blend = 100
+                    vim.api.nvim_set_hl(0, 'Cursor', hl)
+                    vim.opt.guicursor:append('a:Cursor/lCursor')
+                end,
+            })
+            -- show cursor after alpha exits
+            vim.api.nvim_create_autocmd('BufUnload', {
+                buffer = 0,
+                desc = 'show cursor after alpha',
+                callback = function ()
+                    local hl = vim.api.nvim_get_hl_by_name('Cursor', true)
+                    hl.blend = 0
+                    vim.api.nvim_set_hl(0, 'Cursor', hl)
+                    vim.opt.guicursor:remove('a:Cursor/lCursor')
+                end,
+            })
+        end,
+    },
 }
 
 return {
