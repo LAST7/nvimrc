@@ -14,16 +14,16 @@ keymap.set("i", "jj", "<ESC>")
 keymap.set("n", "U", "<C-r>")
 
 -- map H to ^ and L to $
-keymap.set("n", "H", "^")
-keymap.set("v", "H", "^")
-keymap.set("n", "L", "$")
-keymap.set("v", "L", "$")
+for _, mode in pairs({"n", "v", "o", "x"}) do
+    keymap.set(mode, "H", "^")
+    keymap.set(mode, "L", "$")
+end
 
 -- change <C-d> and <C-u> to move 9 lines up/down
-keymap.set("n", "<C-u>", "9k")
-keymap.set("v", "<C-u>", "9k")
-keymap.set("n", "<C-d>", "9j")
-keymap.set("v", "<C-d>", "9j")
+for _, mode in pairs({"n", "v", "o", "x"}) do
+    keymap.set(mode, "<C-u>", "8k")
+    keymap.set(mode, "<C-d>", "8j")
+end
 
 -- clear search highlights
 keymap.set("n", "<leader>nh", ":nohl<CR>")
@@ -41,10 +41,6 @@ keymap.set("n", "<leader>sh", "<C-w>s") -- split window horizontally
 keymap.set("n", "<leader>se", "<C-w>=") -- make split windows equal width & height
 keymap.set("n", "<leader>sx", ":close<CR>") -- close current split window
 
--- keymap.set("n", "<leader>to", ":tabnew<CR>") -- open new tab
--- keymap.set("n", "<leader>tx", ":tabclose<CR>") -- close current tab
--- keymap.set("n", "<leader>tn", ":tabn<CR>") --  go to next tab
--- keymap.set("n", "<leader>tp", ":tabp<CR>") --  go to previous tab
 
 ----------------------
 -- Plugin Keybinds
@@ -72,7 +68,7 @@ keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>") -- find string in 
 keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>") -- find string under cursor in current working directory
 keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>") -- list open buffers in current neovim instance
 keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>") -- list available help tags
-keymap.set("n", "<leader>lds", "<cmd>Telescope lsp_document_symbols<cr>") -- list all functions/structs/classes/modules in the current buffer
+-- keymap.set("n", "<leader>lds", "<cmd>Telescope lsp_document_symbols<cr>") -- list all functions/structs/classes/modules in the current buffer
 
 -- telescope git commands
 -- keymap.set("n", "<leader>gc", "<cmd>Telescope git_commits<cr>") -- list all git commits (use <cr> to checkout) ["gc" for git commits]
@@ -87,13 +83,29 @@ keymap.set("n", "<leader>gf", "<cmd>LazyGitFilterCurrentFile<cr>")
 -- telescope notify history
 keymap.set("n", "<leader>mh", "<cmd>Telescope notify<cr>") -- list the notification message history
 
--- hop cmd
-keymap.set("n", "<leader>hf", ":HopWord<cr>")
-keymap.set("n", "<leader>hff", ":HopWordMW<cr>")
-keymap.set("n", "<leader>hc", ":HopChar2<cr>")
-keymap.set("n", "<leader>hcc", ":HopChar2MW<cr>")
-keymap.set("n", "<leader>hl", ":HopLine<cr>")
-keymap.set("n", "<leader>hls", ":HopLineStart<cr>")
+-- flash:
+keymap.set("n", "<leader>lw", "<cmd>lua require('flash').jump()<cr>") -- jump
+keymap.set("n", "<leader>lt", "<cmd>lua require('flash').treesitter()<cr>") -- treesitter
+-- initialize flash with the word under the cursor
+keymap.set(
+    "n", "<leader>lc",
+    function ()
+        require("flash").jump({
+            pattern = vim.fn.expand("<cword>"),
+        })
+    end
+)
+-- jump to a line
+keymap.set(
+    "n", "<leader>ll",
+    function ()
+        require("flash").jump({
+            search = { mode = "search", max_length = 0 },
+            label = { after = { 0, 0 } },
+            pattern = "^",
+        })
+    end
+)
 
 -- restart lsp server
 keymap.set("n", "<leader>rs", ":LspRestart<CR>") -- mapping to restart lsp if necessary

@@ -61,7 +61,7 @@ return {
                 { name = "calc" }, -- calculator
                 -- replace space with dash when typing a name of a font
                 -- to avoid cmp restarting
-                { name = "fonts", option = { space_filter = "-" } }, -- fonts
+                -- { name = "fonts", option = { space_filter = "-" } }, -- fonts
             }),
             -- configure lspkind for vs-code like icons
             formatting = {

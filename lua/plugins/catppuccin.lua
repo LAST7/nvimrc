@@ -75,6 +75,9 @@ local config = {
             -- noice
             -- https://github.com/folke/noice.nvim#-highlight-groups
             NoicePopupmenuBorder = { link = "CmpBorder" },
+            -- flash
+            -- https://github.com/folke/flash.nvim#-highlights
+            FlashLabel = { fg = C.red }
         }
     end,
 }
