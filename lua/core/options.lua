@@ -57,7 +57,7 @@ opt.sidescrolloff = 8
 
 -- show invisible characters
 opt.list = true
-opt.listchars = "space:·,tab:^I"
+opt.listchars = "space:·,tab:^I,eol:↴"
 
 -- enhance the completion function
 opt.wildmenu = true

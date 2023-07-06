@@ -77,11 +77,14 @@ local config = {
             NoicePopupmenuBorder = { link = "CmpBorder" },
             -- flash
             -- https://github.com/folke/flash.nvim#-highlights
-            FlashLabel = { fg = C.base, bg = C.maroon },
+            FlashLabel = { fg = C.crust, bg = C.red },
             FlashMatch = { fg = C.text, bg = C.surface2 },
-            FlashCurrent = { fg = C.base, bg = C.lavender },
+            FlashCurrent = { fg = C.surface1, bg = C.blue },
             -- neo-tree
-            NeoTreeFloatBorder = { link = "FloatBorder" }
+            NeoTreeFloatBorder = { link = "FloatBorder" },
+            -- indent-blankline
+            IndentBlankLineChar = { fg = C.overlay0 },
+            IndentBlankLineContextChar = { fg = C.blue },
         }
     end,
 }
