@@ -20,6 +20,14 @@ return {
             },
             sections = {
                 lualine_c = {"filename"},
+                -- show @recording message
+                lualine_x = {
+                    {
+                        require("noice").api.statusline.mode.get,
+                        cond = require("noice").api.statusline.mode.has,
+                        color = { fg = "#ffae64" }
+                    }
+                },
             }
         }
 
