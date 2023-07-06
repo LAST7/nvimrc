@@ -3,13 +3,6 @@ local config = {
         -- to prevent neovide from crashing
         view = false;
     },
-    -- show @recording messages
-    routes = {
-        {
-            view = "notify",
-            filter = { event = "msg_showmode" },
-        },
-    },
     -- display the cmdline and popupmenu together
     views = {
         cmdline_popup = {
