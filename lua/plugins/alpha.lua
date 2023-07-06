@@ -72,7 +72,7 @@ local options = {
             button("SPC w", "  Find Word",    ":Telescope live_grep<CR>"),
             button("SPC b", "  Bookmarks",    ":Telescope marks<CR>"),
             button("SPC t", "  Themes",       ":Telescope colorscheme<CR>"),
-            button("SPC s", "  Settings",     ":e $MYVIMRC | :cd %:p:h | :split . | :wincmd w | :pwd<CR>"),
+            button("SPC s", "  Settings",     ":e $MYVIMRC | :cd %:p:h | :NeoTreeShowToggle<cr> | :wincmd l | :pwd<cr>"),
             button("SPC q", "  Exit Neovim",  ":qa<CR>"),
             button("SPC z", "Z  Lazy", ":Lazy<CR>"),
         },
