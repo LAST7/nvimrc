@@ -3,7 +3,7 @@ local opt = vim.opt -- for conciseness
 -- neovide settings
 opt.guifont = "FiraCode Nerd Font:h11"
 
-vim.g.neovide_fullscreen = true
+vim.g.neovide_fullscreen = false
 vim.g.neovide_transparency = 0.75
 -- vim.g.neovide_scale_factor = 0.95
 

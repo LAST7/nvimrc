@@ -59,6 +59,7 @@ local config = {
     custom_highlights = function (C)
         return {
             NormalFloat = { bg = C.none }, -- transparent
+            FloatBorder = { fg = C.lavender },
             TabLineSel = { bg = C.pink },
             Pmenu = { bg = C.none },
             PmenuSel = { bg = C.overlay0 },
