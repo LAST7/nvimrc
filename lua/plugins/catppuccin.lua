@@ -86,6 +86,8 @@ local config = {
             -- indent-blankline
             IndentBlankLineChar = { fg = C.overlay0 },
             IndentBlankLineContextChar = { fg = C.blue },
+            -- null-ls
+            NullLsInfoBorder = { link = "FloatBorder" },
         }
     end,
 }
