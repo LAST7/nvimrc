@@ -49,6 +49,16 @@ maps.n["<leader>sx"] = { "<cmd>close<cr>", desc = "close current split window" }
 -- Plugin Keybinds
 ----------------------
 
+-- bufferline
+maps.n["<A-o>"] = { "<cmd>enew<cr>", desc = "open new buffer" }
+maps.n["<A-h>"] = { "<cmd>BufferLineCyclePrev<cr>", desc = "nevigate to prev buffer" }
+maps.n["<A-l>"] = { "<cmd>BufferLineCycleNext<cr>", desc = "nevigate to next buffer" }
+maps.n["<A-i>"] = { "<cmd>BufferLinePick<cr>", desc = "choose buffer" }
+maps.n["<A-q>"] = { "<cmd>bp|sp|bn|bd!<cr>", desc = "close buffer" }
+for i = 1, 9 do
+    maps.n["<A-" .. i .. ">"] = { function () require("bufferline").go_to_buffer(i) end }
+end
+
 -- toggleterm
 maps.n["<leader>tl"] = { "<cmd>ToggleTerm direction=vertical<cr>", desc = "open right terminal" }
 maps.n["<leader>tj"] = { "<cmd>ToggleTerm direction=horizontal<cr>", desc = "open bottom terminal" }
@@ -62,7 +72,7 @@ end
 -- nvim-colorizer
 maps.n["<leader>co"] = { "<cmd>ColorizerToggle<cr>", desc = "toggle colorizer" }
 
--- nvim-tree
+-- neo-tree
 maps.n["<leader>e"] = { "<cmd>NeoTreeShowToggle<cr>", desc = "toggle lhs neo-tree file explorer" }
 maps.n["<leader>u"] = { "<cmd>NeoTreeFloatToggle<cr>", desc = "toggle floating neo-tree file explorer" }
 
@@ -123,14 +133,17 @@ maps.n["<leader>xx"] = { "<cmd>TroubleToggle<cr>", desc = "toggle trouble panel"
 maps.n["<leader>xc"] = { "<cmd>TroubleToggle workspace_diagnostics<cr>", desc = "toggle trouble in current workspace" }
 maps.n["gR"] = { "<cmd>TroubleToggle lsp_references<cr>", desc = "toggle trouble reference" }
 
--- bufferline
-maps.n["<A-o>"] = { "<cmd>enew<cr>", desc = "open new buffer" }
-maps.n["<A-h>"] = { "<cmd>BufferLineCyclePrev<cr>", desc = "nevigate to prev buffer" }
-maps.n["<A-l>"] = { "<cmd>BufferLineCycleNext<cr>", desc = "nevigate to next buffer" }
-maps.n["<A-i>"] = { "<cmd>BufferLinePick<cr>", desc = "choose buffer" }
-maps.n["<A-q>"] = { "<cmd>bp|sp|bn|bd!<cr>", desc = "close buffer" }
-for i = 1, 9 do
-    maps.n["<A-" .. i .. ">"] = { function () require("bufferline").go_to_buffer(i) end }
-end
+maps.n["gh"] = { "<cmd>Lspsaga finder<cr>", desc = "show definition and reference" }
+maps.n["gD"] = { "<cmd>lua vim.lsp.buf.declaration()<cr>", desc = "go to declaration" }
+maps.n["gd"] = { "<cmd>Lspsaga peek_definition<cr>", desc = "peek definition" }
+maps.n["gi"] = { "<cmd>lua vim.lsp.buf.implementation()<cr>", desc = "go to implementation" }
+maps.n["<leader>ca"] = { "<cmd>Lspsaga code_action<cr>", desc = "code action" }
+maps.n["<leader>rn"] = { "<cmd>Lspsaga rename<cr>", desc = "smart rename" }
+maps.n["<leader>d"] = { "<cmd>Lspsaga show_line_diagnostics<cr>", desc = "show diagnostics for current line" }
+maps.n["<leader>D"] = { "<cmd>Lspsaga show_cursor_diagnostics<cr>", desc = "show diagnostic under cursor" }
+maps.n["[d"] = { "<cmd>Lspsaga diagnostic_jump_prev<cr>", desc = "jump to previous diagnostic in buffer" }
+maps.n["]d"] = { "<cmd>Lspsaga diagnostic_jump_next<cr>", desc = "jump to next diagnostic in buffer" }
+maps.n["K"] = { "<cmd>Lspsaga hover_doc<cr>", desc = "show documentations" }
+maps.n["<leader>o"] = { "<cmd>Lspsaga outline<cr>", desc = "show outline" }
 
 utils.set_mappings(maps)

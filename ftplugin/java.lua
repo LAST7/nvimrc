@@ -1,4 +1,4 @@
-local jdtls = require("jdtls")
+-- local jdtls = require("jdtls")
 
 -- If you started neovim within `~/dev/xy/project-1` this would resolve to `project-1`
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
@@ -9,27 +9,11 @@ local workspace_dir = "/home/last/.local/share/nvim/jdt-language-server/workspac
 -- The on_attach function is used to set key maps after the language server
 -- attaches to the current buffer
 local on_attach = function (client, bufnr)
-    -- Regular Neovim Lsp client keymappings
-    local keymap = vim.keymap
-    local bufopts = { noremap=true, silent=true, buffer=bufnr }
-    keymap.set("n", "gh", "<cmd>Lspsaga lsp_finder<CR>", bufopts) -- show definition, references
-    keymap.set("n", "gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>", bufopts) -- got to declaration
-    keymap.set("n", "gd", "<cmd>Lspsaga peek_definition<CR>", bufopts) -- see definition and make edits in window
-    keymap.set("n", "gt", "<cmd>Lspsaga goto_definition<CR>", bufopts) -- go to definition
-    keymap.set("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", bufopts) -- go to implementation
-    keymap.set("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", bufopts) -- see available code actions
-    keymap.set("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", bufopts) -- smart rename
-    keymap.set("n", "<leader>d", "<cmd>Lspsaga show_line_diagnostics<CR>", bufopts) -- show  diagnostics for line
-    keymap.set("n", "<leader>D", "<cmd>Lspsaga show_cursor_diagnostics<CR>", bufopts) -- show diagnostics for cursor
-    keymap.set("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>", bufopts) -- jump to previous diagnostic in buffer
-    keymap.set("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>", bufopts) -- jump to next diagnostic in buffer
-    keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>", bufopts) -- show documentation for what is under cursor
-    keymap.set("n", "<leader>o", "<cmd>Lspsaga outline<CR>", bufopts) -- see outline on right hand side
-
     -- Java extensions provided by jdtls
-    keymap.set("<C-o>", jdtls.organize_imports, bufopts) -- Organize imports
-    -- keymap.set("<space>ev", jdtls.extract_variable, bufopts) -- Extract variable
-    -- keymap.set("<space>ec", jdtls.extract_constant, bufopts) -- Extract constant
+    --[[ local keymap = vim.keymap
+    keymap.set("<C-o>", jdtls.organize_imports) -- Organize imports
+    keymap.set("<space>ev", jdtls.extract_variable) -- Extract variable
+    keymap.set("<space>ec", jdtls.extract_constant) -- Extract constant ]]
 
 end
 
