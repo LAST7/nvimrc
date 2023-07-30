@@ -8,13 +8,12 @@ local workspace_dir = "/home/last/.local/share/nvim/jdt-language-server/workspac
 -- Source: https://sookocheff.com/post/vim/neovim-java-ide/
 -- The on_attach function is used to set key maps after the language server
 -- attaches to the current buffer
-local on_attach = function (client, bufnr)
+local on_attach = function(client, bufnr)
     -- Java extensions provided by jdtls
     --[[ local keymap = vim.keymap
     keymap.set("<C-o>", jdtls.organize_imports) -- Organize imports
     keymap.set("<space>ev", jdtls.extract_variable) -- Extract variable
     keymap.set("<space>ec", jdtls.extract_constant) -- Extract constant ]]
-
 end
 
 -- See `:help vim.lsp.start_client` for an overview of the supported `config` options.

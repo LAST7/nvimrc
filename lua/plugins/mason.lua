@@ -39,11 +39,10 @@ return {
         "williamboman/mason-lspconfig.nvim", -- bridges gap b/w mason & lspconfig
         "jayp0521/mason-null-ls.nvim", -- bridges gap b/w mason & null-ls
     },
-    config = function ()
+    config = function()
         require("mason").setup(config)
 
         require("mason-lspconfig").setup(mason_lspconfig)
         require("mason-null-ls").setup(mason_nulllsconfig)
-
-    end
+    end,
 }

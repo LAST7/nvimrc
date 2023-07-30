@@ -5,13 +5,13 @@ local config = {
     render = "compact",
     -- change the animation when the notification disappears
     -- "fade_in_slide_out", "fade", "slide", "static"
-    stages = "fade"
+    stages = "fade",
 }
 
 return {
     "rcarriga/nvim-notify",
     event = "VeryLazy",
-    config = function ()
+    config = function()
         require("notify").setup(config)
-    end
+    end,
 }

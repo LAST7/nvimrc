@@ -11,7 +11,7 @@ return {
         "saadparwaiz1/cmp_luasnip",
         "rafamadriz/friendly-snippets",
     },
-    config = function ()
+    config = function()
         local luasnip = require("luasnip")
         local lspkind = require("lspkind")
         local cmp = require("cmp")
@@ -29,8 +29,8 @@ return {
             },
             window = {
                 completion = {
-                    border = { '╭', '─', '╮', '│', '╯', '─', '╰', '│' },
-                    winhighlight = 'Normal:CmpBG,FloatBorder:CmpBorder,CursorLine:CmpSel,Search:None',
+                    border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+                    winhighlight = "Normal:CmpBG,FloatBorder:CmpBorder,CursorLine:CmpSel,Search:None",
                     scrolloff = 0,
                     col_offset = 0,
                     side_padding = 1,
@@ -39,10 +39,10 @@ return {
                 documentation = {
                     max_height = math.floor(WIDE_HEIGHT * (WIDE_HEIGHT / vim.o.lines)),
                     max_width = math.floor((WIDE_HEIGHT * 2) * (vim.o.columns / (WIDE_HEIGHT * 2 * 16 / 9))),
-                    border = { '╭', '─', '╮', '│', '╯', '─', '╰', '│' },
-                    winhighlight = 'Normal:CmpBG,FloatBorder:CmpDocBorder,CursorLine:CmpSel,Search:None',
-                    },
+                    border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+                    winhighlight = "Normal:CmpBG,FloatBorder:CmpDocBorder,CursorLine:CmpSel,Search:None",
                 },
+            },
             mapping = cmp.mapping.preset.insert({
                 ["<S-Tab>"] = cmp.mapping.select_prev_item(), -- previous suggestion
                 ["<Tab>"] = cmp.mapping.select_next_item(), -- next suggestion
@@ -69,19 +69,18 @@ return {
                     maxwidth = 50,
                     ellipsis_char = "...",
                     mode = "symbol_text",
-                    menu = ({
+                    menu = {
                         buffer = "[Buf]",
                         nvim_lsp = "[LSP]",
                         path = "[Path]",
                         calc = "[Calc]",
                         luasnip = "[Lua]",
                         fonts = "[Font]",
-                    }),
+                    },
                 }),
             },
         }
 
         require("cmp").setup(config)
-    end
-
+    end,
 }

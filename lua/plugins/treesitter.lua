@@ -1,27 +1,27 @@
 -- list of parsers
 local parsers = {
-        "c",
-        "cpp",
-        "json",
-        "java",
-        "javascript",
-        "typescript",
-        "tsx",
-        "yaml",
-        "html",
-        "css",
-        "xml",
-        "markdown",
-        "markdown_inline",
-        "svelte",
-        "graphql",
-        "bash",
-        "lua",
-        "python",
-        "vim",
-        "dockerfile",
-        "gitignore",
-    }
+    "c",
+    "cpp",
+    "json",
+    "java",
+    "javascript",
+    "typescript",
+    "tsx",
+    "yaml",
+    "html",
+    "css",
+    "xml",
+    "markdown",
+    "markdown_inline",
+    "svelte",
+    "graphql",
+    "bash",
+    "lua",
+    "python",
+    "vim",
+    "dockerfile",
+    "gitignore",
+}
 
 local config = {
     -- enable syntax highlighting
@@ -47,10 +47,10 @@ return {
         ts_update()
     end,
     dependencies = {
-        "windwp/nvim-ts-autotag"
+        "windwp/nvim-ts-autotag",
     },
 
-    config = function ()
+    config = function()
         --[[
         -- enable the foldmethod
         vim.api.nvim_create_autocmd("FileType", {
@@ -70,7 +70,7 @@ return {
             install_info = {
                 url = "https://github.com/Trivernis/tree-sitter-xml",
                 -- the repository used here is forked from https://github.com/dorgnarg/tree-sitter-xml
-                files = {"src/parser.c"},
+                files = { "src/parser.c" },
                 generate_requires_npm = true,
                 branch = "main",
             },
@@ -78,5 +78,5 @@ return {
         }
 
         require("nvim-treesitter.configs").setup(config)
-    end
+    end,
 }

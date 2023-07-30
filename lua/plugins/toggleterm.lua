@@ -1,7 +1,7 @@
 local config = {
     open_mapping = [[<C-\>]],
     direction = "float",
-    size = function (term)
+    size = function(term)
         if term.direction == "horizontal" then
             return 15
         elseif term.direction == "vertical" then
@@ -26,7 +26,7 @@ local config = {
     },
     winbar = {
         enabled = true,
-        name_formatter = function (term)
+        name_formatter = function(term)
             return term.name
         end,
     },
@@ -37,7 +37,7 @@ return {
     version = "*",
     event = "VeryLazy",
 
-    config = function ()
+    config = function()
         require("toggleterm").setup(config)
-    end
+    end,
 }

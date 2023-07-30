@@ -26,7 +26,6 @@ local function button(sc, txt, keybind)
     }
 end
 
-
 local function footer()
     local date = os.date("  %d/%m/%Y ")
     local time = os.date("  %H:%M:%S ")
@@ -38,7 +37,6 @@ local function footer()
 
     return date .. time .. version
 end
-
 
 local options = {
     header = {
@@ -63,14 +61,14 @@ local options = {
     buttons = {
         type = "group",
         val = {
-            button("SPC n", "  New File",     ":ene <BAR> startinsert <CR>"),
-            button("SPC f", "  Find File",    ":Telescope find_files<CR>"),
-            button("SPC r", "  Recent File",  ":Telescope oldfiles<CR>"),
-            button("SPC w", "  Find Word",    ":Telescope live_grep<CR>"),
-            button("SPC b", "  Bookmarks",    ":Telescope marks<CR>"),
-            button("SPC t", "  Themes",       ":Telescope colorscheme<CR>"),
-            button("SPC s", "  Settings",     ":e $MYVIMRC | :cd %:p:h | :NeoTreeShowToggle<cr> | :wincmd l | :pwd<cr>"),
-            button("SPC q", "  Exit Neovim",  ":qa<CR>"),
+            button("SPC n", "  New File", ":ene <BAR> startinsert <CR>"),
+            button("SPC f", "  Find File", ":Telescope find_files<CR>"),
+            button("SPC r", "  Recent File", ":Telescope oldfiles<CR>"),
+            button("SPC w", "  Find Word", ":Telescope live_grep<CR>"),
+            button("SPC b", "  Bookmarks", ":Telescope marks<CR>"),
+            button("SPC t", "  Themes", ":Telescope colorscheme<CR>"),
+            button("SPC s", "  Settings", ":e $MYVIMRC | :cd %:p:h | :NeoTreeShowToggle<cr> | :wincmd l | :pwd<cr>"),
+            button("SPC q", "  Exit Neovim", ":qa<CR>"),
             button("SPC z", "Z  Lazy", ":Lazy<CR>"),
         },
         opts = { spacing = 1 },
@@ -100,27 +98,27 @@ local config = {
     -- hide the cursor using the `highlight-blend`(requires `termguicolors` to be true)
     -- `blend = 100` means invisible
     opts = {
-        setup = function ()
+        setup = function()
             -- hide cursor when in alpha
-            vim.api.nvim_create_autocmd('User', {
-                pattern = 'AlphaReady',
-                desc = 'hide cursor for alpha',
-                callback = function ()
-                    local hl = vim.api.nvim_get_hl_by_name('Cursor', true)
+            vim.api.nvim_create_autocmd("User", {
+                pattern = "AlphaReady",
+                desc = "hide cursor for alpha",
+                callback = function()
+                    local hl = vim.api.nvim_get_hl_by_name("Cursor", true)
                     hl.blend = 100
-                    vim.api.nvim_set_hl(0, 'Cursor', hl)
-                    vim.opt.guicursor:append('a:Cursor/lCursor')
+                    vim.api.nvim_set_hl(0, "Cursor", hl)
+                    vim.opt.guicursor:append("a:Cursor/lCursor")
                 end,
             })
             -- show cursor after alpha exits
-            vim.api.nvim_create_autocmd('BufUnload', {
+            vim.api.nvim_create_autocmd("BufUnload", {
                 buffer = 0,
-                desc = 'show cursor after alpha',
-                callback = function ()
-                    local hl = vim.api.nvim_get_hl_by_name('Cursor', true)
+                desc = "show cursor after alpha",
+                callback = function()
+                    local hl = vim.api.nvim_get_hl_by_name("Cursor", true)
                     hl.blend = 0
-                    vim.api.nvim_set_hl(0, 'Cursor', hl)
-                    vim.opt.guicursor:remove('a:Cursor/lCursor')
+                    vim.api.nvim_set_hl(0, "Cursor", hl)
+                    vim.opt.guicursor:remove("a:Cursor/lCursor")
                 end,
             })
         end,
@@ -133,7 +131,7 @@ return {
     dependencies = {
         "nvim-tree/nvim-web-devicons",
     },
-    config = function ()
+    config = function()
         require("alpha").setup(config)
     end,
 }

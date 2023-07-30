@@ -13,15 +13,12 @@ return {
     dependencies = {
         "nvim-cmp",
     },
-    config = function ()
+    config = function()
         require("nvim-autopairs").setup(config)
 
         -- make autopairs and completion work together
         local cmp_autopairs = require("nvim-autopairs.completion.cmp")
         local cmp = require("cmp")
-        cmp.event:on(
-            'confirm_done',
-            cmp_autopairs.on_confirm_done()
-        )
-    end
+        cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+    end,
 }

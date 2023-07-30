@@ -1,7 +1,7 @@
 local config = {
     messages = {
         -- to prevent neovide from crashing
-        view = false;
+        view = false,
     },
     -- display the cmdline and popupmenu together
     views = {
@@ -42,11 +42,11 @@ local config = {
 return {
     "folke/noice.nvim",
     event = "VeryLazy",
-    config = function ()
+    config = function()
         require("noice").setup(config)
     end,
     dependencies = {
         "MunifTanjim/nui.nvim",
         "rcarriga/nvim-notify",
-    }
+    },
 }

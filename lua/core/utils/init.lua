@@ -9,12 +9,20 @@ function M.get_hlgroup(name, fallback)
         local hl
         if vim.api.nvim_get_hl then -- check for new neovim 0.9 API
             hl = vim.api.nvim_get_hl(0, { name = name, link = false })
-            if not hl.fg then hl.fg = "NONE" end
-            if not hl.bg then hl.bg = "NONE" end
+            if not hl.fg then
+                hl.fg = "NONE"
+            end
+            if not hl.bg then
+                hl.bg = "NONE"
+            end
         else
             hl = vim.api.nvim_get_hl_by_name(name, vim.o.termguicolors)
-            if not hl.foreground then hl.foreground = "NONE" end
-            if not hl.background then hl.background = "NONE" end
+            if not hl.foreground then
+                hl.foreground = "NONE"
+            end
+            if not hl.background then
+                hl.background = "NONE"
+            end
             hl.fg, hl.bg = hl.foreground, hl.background
             hl.ctermfg, hl.ctermbg = hl.fg, hl.bg
             hl.sp = hl.special
@@ -32,7 +40,7 @@ function M.which_key_register()
             for mode, registration in pairs(M.which_key_queue) do
                 wk.register(registration, { mode = mode })
             end
-        M.which_key_queue = nil
+            M.which_key_queue = nil
         end
     end
 end
@@ -56,9 +64,15 @@ function M.set_mappings(map_table, base)
                     keymap_opts[1] = nil
                 end
                 if not cmd or keymap_opts.name then -- if which-key mapping, queue it
-                    if not keymap_opts.name then keymap_opts.name = keymap_opts.desc end
-                    if not M.which_key_queue then M.which_key_queue = {} end
-                    if not M.which_key_queue[mode] then M.which_key_queue[mode] = {} end
+                    if not keymap_opts.name then
+                        keymap_opts.name = keymap_opts.desc
+                    end
+                    if not M.which_key_queue then
+                        M.which_key_queue = {}
+                    end
+                    if not M.which_key_queue[mode] then
+                        M.which_key_queue[mode] = {}
+                    end
                     M.which_key_queue[mode][keymap] = keymap_opts
                 else -- if not which-key mapping, set it
                     vim.keymap.set(mode, keymap, cmd, keymap_opts)
@@ -66,8 +80,9 @@ function M.set_mappings(map_table, base)
             end
         end
     end
-      if package.loaded["which-key"] then M.which_key_register() end -- if which-key is loaded already, register
+    if package.loaded["which-key"] then
+        M.which_key_register()
+    end -- if which-key is loaded already, register
 end
-
 
 return M

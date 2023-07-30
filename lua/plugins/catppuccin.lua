@@ -52,11 +52,11 @@ local config = {
                 warnings = { "underline" },
                 information = { "underline" },
             },
-        }
+        },
     },
     -- rosewater, flamingo, pink, mauve, red, maroon, peach, yellow...
     -- more colors: https://github.com/catppuccin/catppuccin#-palette
-    custom_highlights = function (C)
+    custom_highlights = function(C)
         return {
             NormalFloat = { bg = C.none }, -- transparent
             FloatBorder = { fg = C.lavender },
@@ -96,9 +96,9 @@ return {
     "catppuccin/nvim",
     lazy = false,
     name = "catppuccin",
-    config = function ()
+    config = function()
         -- setup must be called before loading
         require("catppuccin").setup(config)
-        vim.cmd.colorscheme "catppuccin-mocha"
-    end
+        vim.cmd.colorscheme("catppuccin-mocha")
+    end,
 }

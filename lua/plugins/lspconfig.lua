@@ -11,16 +11,16 @@ return {
     dependencies = {
         "hrsh7th/cmp-nvim-lsp",
     },
-    config = function ()
+    config = function()
         -- used to enable autocompletion (assign to every lsp server config)
         local capabilities = require("cmp_nvim_lsp").default_capabilities()
         -- fix clangd encoding bug
-        capabilities.offsetEncoding = 'utf-8'
+        capabilities.offsetEncoding = "utf-8"
 
         -- configure bash server
-        require("lspconfig")["bashls"].setup{
+        require("lspconfig")["bashls"].setup({
             capabilities = capabilities,
-        }
+        })
 
         -- configure cpp clangd
         require("lspconfig")["clangd"].setup({
@@ -91,5 +91,5 @@ return {
         lspconfig_win.default_options = {
             border = "rounded",
         }
-    end
+    end,
 }

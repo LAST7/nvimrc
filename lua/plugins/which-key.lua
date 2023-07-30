@@ -9,7 +9,7 @@ local config = {
 return {
     "folke/which-key.nvim",
     event = "VeryLazy",
-    config = function ()
+    config = function()
         require("which-key").setup(config)
-    end
+    end,
 }

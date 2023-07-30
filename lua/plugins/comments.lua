@@ -1,9 +1,9 @@
-local config = { }
+local config = {}
 
 return {
     "numToStr/Comment.nvim",
     event = "VeryLazy",
-    config = function ()
+    config = function()
         require("Comment").setup(config)
-    end
+    end,
 }

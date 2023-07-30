@@ -5,9 +5,8 @@ local config = {
 return {
     "folke/flash.nvim",
     event = "VeryLazy",
-    keys = function () return {} end,
 
-    config = function ()
+    config = function()
         require("flash").setup(config)
-    end
+    end,
 }
