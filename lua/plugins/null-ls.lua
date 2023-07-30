@@ -1,10 +1,10 @@
 return {
     "jose-elias-alvarez/null-ls.nvim", -- configure formatters & linters
     event = "VeryLazy",
-    config = function ()
-        -- local formatting = require("null-ls").builtins.formatting
+    config = function()
+        local formatting = require("null-ls").builtins.formatting
         local diagnostics = require("null-ls").builtins.diagnostics
-        local completion = require("null-ls").builtins.completion
+        -- local completion = require("null-ls").builtins.completion
 
         -- to setup format on save
         -- local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
@@ -13,10 +13,27 @@ return {
             border = "rounded",
             -- setup formatters & linters
             sources = {
-                --  to disable file types use
-                --  "formatting.prettier.with({disabled_filetypes: {}})" (see null-ls docs)
-                -- formatting.prettier, -- js/ts formatter
-                -- formatting.stylua, -- lua formatter
+                -- to disable file types use
+                -- "formatting.prettier.with({disabled_filetypes: {}})" (see null-ls docs)
+                -- set tab width
+                formatting.prettier.with({
+                    extra_args = function()
+                        return {
+                            "--tab-width",
+                            4,
+                        }
+                    end,
+                }), -- js/ts formatter
+                formatting.stylua.with({
+                    extra_args = function()
+                        return {
+                            "--indent-type",
+                            "Spaces",
+                            "--indent-width",
+                            4,
+                        }
+                    end,
+                }), -- lua formatter
                 diagnostics.codespell,
                 diagnostics.eslint_d.with({ -- js/ts linter
                     -- only enable eslint if root has .eslintrc.js
@@ -24,10 +41,11 @@ return {
                         return utils.root_has_file(".eslintrc.js") -- change file extension if you use something else
                     end,
                 }),
-                completion.spell,
+                -- require("typescript.extensions.null-ls.code-actions"),
+                -- completion.spell,
             },
             -- configure format on save
-            --[[ on_attach = function(current_client, bufnr)
+            on_attach = function(current_client, bufnr)
                 if current_client.supports_method("textDocument/formatting") then
                     vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
                     vim.api.nvim_create_autocmd("BufWritePre", {
@@ -44,8 +62,8 @@ return {
                         end,
                     })
                 end
-            end, ]]
+            end,
         }
         require("null-ls").setup(config)
-    end
+    end,
 }
