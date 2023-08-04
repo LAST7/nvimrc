@@ -34,6 +34,7 @@ return {
                         }
                     end,
                 }), -- lua formatter
+                formatting.sqlfmt,
                 diagnostics.codespell,
                 diagnostics.eslint_d.with({ -- js/ts linter
                     -- only enable eslint if root has .eslintrc.js

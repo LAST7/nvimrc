@@ -20,6 +20,9 @@ return {
         require("luasnip/loaders/from_vscode").lazy_load()
         vim.opt.completeopt = "menu,menuone,noselect"
 
+        -- extend snippet, making javascript react available for .js files
+        luasnip.filetype_extend("typescript", { "javascript" })
+
         local WIDE_HEIGHT = 40
         local config = {
             snippet = {
