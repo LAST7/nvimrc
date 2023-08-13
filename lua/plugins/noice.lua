@@ -1,8 +1,4 @@
 local config = {
-    messages = {
-        -- to prevent neovide from crashing
-        view = false,
-    },
     -- display the cmdline and popupmenu together
     views = {
         cmdline_popup = {
