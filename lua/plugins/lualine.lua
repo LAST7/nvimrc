@@ -17,20 +17,26 @@ return {
             },
             sections = {
                 lualine_c = { "filename" },
-                -- show @recording message
-                lualine_x = {
-                    {
-                        require("noice").api.statusline.mode.get,
-                        cond = require("noice").api.statusline.mode.has,
-                        color = { fg = "#ffae64" },
-                    },
-                },
+                lualine_x = { "encoding", "fileformat", "filetype" },
             },
         }
 
+        -- ##########
         local function ins_left(component)
             table.insert(config.sections.lualine_c, component)
         end
+
+        local function ins_right(component)
+            table.insert(config.sections.lualine_x, 1, component)
+        end
+        -- ##########
+
+        -- show @recording message
+        ins_right({
+            require("noice").api.statusline.mode.get,
+            cond = require("noice").api.statusline.mode.has,
+            color = { fg = "#ffae64" },
+        })
 
         -- Add the Lsp server name to the status bar
         ins_left({
