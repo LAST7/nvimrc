@@ -42,13 +42,15 @@ return {
             capabilities = capabilities,
         })
 
-        require("lspconfig")["cssls"].setup({
-            capabilities = capabilities,
-        })
         -- configure emmet language server
         require("lspconfig")["emmet_ls"].setup({
             capabilities = capabilities,
             filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
+        })
+
+        -- configure javascript/typescript language server
+        require("lspconfig")["vtsls"].setup({
+            capabilities = capabilities,
         })
 
         -- configure pyright server
