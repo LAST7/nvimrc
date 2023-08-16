@@ -202,7 +202,7 @@ maps.n["<leader>xc"] = { "<cmd>TroubleToggle workspace_diagnostics<cr>", desc = 
 maps.n["gR"] = { "<cmd>TroubleToggle lsp_references<cr>", desc = "toggle trouble reference" }
 
 maps.n["gh"] = { "<cmd>Lspsaga finder<cr>", desc = "show definition and reference" }
-maps.n["gD"] = { "<cmd>lua vim.lsp.buf.declaration()<cr>", desc = "go to declaration" }
+maps.n["gD"] = { "<cmd>Lspsaga goto_definition<cr>", desc = "go to definition" }
 maps.n["gd"] = { "<cmd>Lspsaga peek_definition<cr>", desc = "peek definition" }
 maps.n["gi"] = { "<cmd>lua vim.lsp.buf.implementation()<cr>", desc = "go to implementation" }
 maps.n["<leader>ca"] = { "<cmd>Lspsaga code_action<cr>", desc = "code action" }
