@@ -76,8 +76,8 @@ end
 maps.n["<leader>co"] = { "<cmd>ColorizerToggle<cr>", desc = "toggle colorizer" }
 
 -- neo-tree
-maps.n["<leader>e"] = { "<cmd>NeoTreeShowToggle<cr>", desc = "toggle lhs neo-tree file explorer" }
-maps.n["<leader>u"] = { "<cmd>NeoTreeFloatToggle<cr>", desc = "toggle floating neo-tree file explorer" }
+maps.n["<leader>e"] = { "<cmd>Neotree toggle left<cr>", desc = "toggle lhs neo-tree file explorer" }
+maps.n["<leader>u"] = { "<cmd>Neotree toggle float<cr>", desc = "toggle floating neo-tree file explorer" }
 
 -- telescope
 maps.n["<leader>ff"] = { "<cmd>Telescope find_files<cr>", desc = "find files in cwd, excluding .gitignore" }

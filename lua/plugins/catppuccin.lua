@@ -83,6 +83,10 @@ local config = {
             FlashCurrent = { fg = C.surface1, bg = C.blue },
             -- neo-tree
             NeoTreeFloatBorder = { link = "FloatBorder" },
+            NeoTreeTabInactive = { link = "Pmenu" },
+            NeoTreeTabActive = { link = "CursorLine" },
+            NeoTreeTabSeparatorInactive = { link = "Pmenu" },
+            NeoTreeTabSeparatorActive = { link = "CursorLine" },
             -- indent-blankline
             IndentBlankLineChar = { fg = C.overlay0 },
             IndentBlankLineContextChar = { fg = C.blue },
