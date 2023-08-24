@@ -214,9 +214,4 @@ maps.n["]d"] = { "<cmd>Lspsaga diagnostic_jump_next<cr>", desc = "jump to next d
 maps.n["K"] = { "<cmd>Lspsaga hover_doc<cr>", desc = "show documentations" }
 maps.n["<leader>ol"] = { "<cmd>Lspsaga outline<cr>", desc = "show outline" }
 
--- typescript
-maps.n["<leader>rf"] = { "<cmd>TypescriptRenameFile<cr>", desc = "rename file and update imports" }
-maps.n["<leader>oi"] = { "<cmd>TypescriptOrganizeImports<cr>", desc = "organize imports" }
-maps.n["<leader>ru"] = { "<cmd>TypescriptRemoveUnused<cr>", desc = "remove unused variables" }
-
 utils.set_mappings(maps)
