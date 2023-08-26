@@ -159,7 +159,21 @@ maps.n["<leader>gd"] = {
     desc = "View Git diff",
 }
 
--- flash:
+-- todo-comments
+maps.n["]t"] = {
+    function()
+        require("todo-comments").jump_next()
+    end,
+    desc = "Next todo comment",
+}
+maps.n["[t"] = {
+    function()
+        require("todo-comments").jump_prev()
+    end,
+    desc = "Previous todo comment",
+}
+
+-- flash
 maps.n["<leader>lw"] = {
     function()
         require("flash").jump()

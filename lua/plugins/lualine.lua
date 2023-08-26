@@ -32,6 +32,7 @@ return {
         -- ##########
 
         -- show @recording message
+        -- TODO: replace the deprecated api
         ins_right({
             require("noice").api.statusline.mode.get,
             cond = require("noice").api.statusline.mode.has,

@@ -23,7 +23,7 @@ return {
                             4,
                         }
                     end,
-                }), -- js/ts formatter
+                }),
                 formatting.stylua.with({
                     extra_args = function()
                         return {
