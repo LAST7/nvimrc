@@ -10,6 +10,7 @@ return {
     event = "VeryLazy",
     dependencies = {
         "hrsh7th/cmp-nvim-lsp",
+        "folke/neodev.nvim",
     },
     config = function()
         -- used to enable autocompletion (assign to every lsp server config)
@@ -84,6 +85,10 @@ return {
                             [vim.fn.expand("$VIMRUNTIME/lua")] = true,
                             [vim.fn.stdpath("config") .. "/lua"] = true,
                         },
+                    },
+                    -- override the completion with neodev plugin
+                    completion = {
+                        callSnippet = "Replace",
                     },
                 },
             },
