@@ -1,3 +1,26 @@
+-- Add the Lsp server name to the status bar
+local LSP_indicator = {
+    function()
+        local msg = "None"
+        local buf_ft = vim.api.nvim_buf_get_option(0, "filetype")
+        local clients = vim.lsp.get_active_clients()
+
+        if next(clients) == nil then
+            return msg
+        end
+
+        for _, client in ipairs(clients) do
+            local filetypes = client.config.filetypes
+            if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
+                return client.name
+            end
+        end
+        return msg
+    end,
+    icon = " LSP:",
+    color = { fg = "#ffffff", gui = "bold" },
+}
+
 return {
     "nvim-lualine/lualine.nvim",
     event = "VeryLazy",
@@ -16,51 +39,24 @@ return {
                 -- section_separators = '|',
             },
             sections = {
-                lualine_c = { "filename" },
-                lualine_x = { "encoding", "fileformat", "filetype" },
+                lualine_c = {
+                    "filename",
+                    -- Add the Lsp server name to the status bar
+                    LSP_indicator,
+                },
+                lualine_x = {
+                    -- show @recording message
+                    {
+                        require("noice").api.status.mode.get,
+                        cond = require("noice").api.status.mode.has,
+                        color = { fg = "#ffae64" },
+                    },
+                    "encoding",
+                    "fileformat",
+                    "filetype",
+                },
             },
         }
-
-        -- ##########
-        local function ins_left(component)
-            table.insert(config.sections.lualine_c, component)
-        end
-
-        local function ins_right(component)
-            table.insert(config.sections.lualine_x, 1, component)
-        end
-        -- ##########
-
-        -- show @recording message
-        -- TODO: replace the deprecated api
-        ins_right({
-            require("noice").api.statusline.mode.get,
-            cond = require("noice").api.statusline.mode.has,
-            color = { fg = "#ffae64" },
-        })
-
-        -- Add the Lsp server name to the status bar
-        ins_left({
-            function()
-                local msg = "None"
-                local buf_ft = vim.api.nvim_buf_get_option(0, "filetype")
-                local clients = vim.lsp.get_active_clients()
-
-                if next(clients) == nil then
-                    return msg
-                end
-
-                for _, client in ipairs(clients) do
-                    local filetypes = client.config.filetypes
-                    if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
-                        return client.name
-                    end
-                end
-                return msg
-            end,
-            icon = " LSP:",
-            color = { fg = "#ffffff", gui = "bold" },
-        })
 
         require("lualine").setup(config)
     end,

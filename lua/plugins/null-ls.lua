@@ -6,7 +6,6 @@ return {
         local diagnostics = require("null-ls").builtins.diagnostics
         -- local completion = require("null-ls").builtins.completion
 
-        -- to setup format on save
         -- local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
         local config = {
@@ -42,13 +41,27 @@ return {
                         return utils.root_has_file(".eslintrc.js") -- change file extension if you use something else
                     end,
                 }),
-                -- require("typescript.extensions.null-ls.code-actions"),
                 -- completion.spell,
             },
-            -- configure format on save
-            on_attach = function(current_client, bufnr)
+            -- configure formatting keymap
+            on_attach = function(current_client)
+                local utils = require("core.utils")
+                local maps = { n = {} }
+
                 if current_client.supports_method("textDocument/formatting") then
-                    vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+                    maps.n["<space>w"] = {
+                        function()
+                            vim.lsp.buf.format({
+                                filter = function(client)
+                                    return client.name == "null-ls"
+                                end,
+                            })
+                        end,
+                        desc = "format the buffer with null-ls formatter",
+                    }
+                    utils.set_mappings(maps)
+                    -- configure format on save
+                    --[[ vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
                     vim.api.nvim_create_autocmd("BufWritePre", {
                         group = augroup,
                         buffer = bufnr,
@@ -61,7 +74,7 @@ return {
                                 bufnr = bufnr,
                             })
                         end,
-                    })
+                    }) ]]
                 end
             end,
         }

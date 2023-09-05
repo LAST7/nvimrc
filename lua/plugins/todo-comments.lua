@@ -40,12 +40,12 @@ local config = {
     -- list of named colors where we try to extract the guifg from the
     -- list of highlight groups or use the hex color if hl not found as a fallback
     colors = {
-        -- error = { "#DC2626", "DiagnosticError", "ErrorMsg" },
-        -- warning = { "#FBBF24", "DiagnosticWarn", "WarningMsg" },
-        -- info = { "#2563EB", "DiagnosticInfo" },
-        -- hint = { "#10B981", "DiagnosticHint" },
-        -- default = { "#7C3AED", "Identifier" },
-        -- test = { "#FF00FF", "Identifier" },
+        --[[ error = { "#DC2626", "DiagnosticError", "ErrorMsg" },
+        warning = { "#FBBF24", "DiagnosticWarn", "WarningMsg" },
+        info = { "#2563EB", "DiagnosticInfo" },
+        hint = { "#10B981", "DiagnosticHint" },
+        default = { "#7C3AED", "Identifier" },
+        test = { "#FF00FF", "Identifier" }, ]]
         -- catppuccin palette
         error = { "#F38BA8" }, -- red
         warning = { "#FAB387" }, -- peach
@@ -69,13 +69,6 @@ local config = {
         -- pattern = [[\b(KEYWORDS)\b]], -- match without the extra colon. You'll likely get false positives
     },
 }
-
--- TODO: not blue enough
--- PERF: what's this?
--- FIX: what should the highlightgroup be?
--- WARNING: this is not good
--- NOTE: weird color
--- HACK: the same as warning
 
 return {
     "folke/todo-comments.nvim",

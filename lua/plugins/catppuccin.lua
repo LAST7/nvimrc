@@ -41,15 +41,15 @@ local config = {
         native_lsp = {
             enable = true,
             virtual_text = {
-                errors = { "bold" },
-                hints = { "italic" },
-                warnings = {},
+                errors      = { "bold" },
+                hints       = { "italic" },
+                warnings    = {},
                 information = {},
             },
             underlines = {
-                errors = { "underline" },
-                hints = { "underline" },
-                warnings = { "underline" },
+                errors      = { "underline" },
+                hints       = { "underline" },
+                warnings    = { "underline" },
                 information = { "underline" },
             },
         },
@@ -60,38 +60,39 @@ local config = {
         return {
             NormalFloat = { bg = C.none }, -- transparent
             FloatBorder = { fg = C.lavender },
-            TabLineSel = { bg = C.pink },
-            Pmenu = { bg = C.none },
-            PmenuSel = { bg = C.overlay0 },
+            TabLineSel  = { bg = C.red },
+            Pmenu       = { bg = C.none },
+            PmenuSel    = { bg = C.overlay0 },
 
             -- nvim-cmp
             -- change values in `winhighlight`
-            CmpBorder = { fg = C.yellow },
-            CmpDocBorder = { fg = C.rosewater },
-            CmpBG = { link = "Pmenu" },
-            CmpSel = { link = "PmenuSel" },
+            CmpBorder    = { fg   = C.yellow },
+            CmpDocBorder = { fg   = C.rosewater },
+            CmpBG        = { link = "Pmenu" },
+            CmpSel       = { link = "PmenuSel" },
             -- telescope
-            -- https://github.com/nvim-telescope/telescope.nvim/wiki/FAQ#how-to-change-telescope-highlights-group
+            -- https://github.com/nvim-telescope/telescope.nvim/wiki/
+            -- FAQ#how-to-change-telescope-highlights-group
             TelescopeBorder = { fg = C.blue },
             -- noice
             -- https://github.com/folke/noice.nvim#-highlight-groups
             NoicePopupmenuBorder = { link = "CmpBorder" },
             -- flash
             -- https://github.com/folke/flash.nvim#-highlights
-            FlashLabel = { fg = C.crust, bg = C.red },
-            FlashMatch = { fg = C.text, bg = C.surface2 },
+            FlashLabel   = { fg = C.crust,    bg = C.red },
+            FlashMatch   = { fg = C.text,     bg = C.surface2 },
             FlashCurrent = { fg = C.surface1, bg = C.blue },
             -- neo-tree
-            NeoTreeFloatBorder = { link = "FloatBorder" },
-            NeoTreeTabInactive = { link = "Pmenu" },
-            NeoTreeTabActive = { link = "CursorLine" },
+            NeoTreeFloatBorder          = { link = "FloatBorder" },
+            NeoTreeTabInactive          = { link = "Pmenu" },
+            NeoTreeTabActive            = { link = "CursorLine" },
             NeoTreeTabSeparatorInactive = { link = "Pmenu" },
-            NeoTreeTabSeparatorActive = { link = "CursorLine" },
+            NeoTreeTabSeparatorActive   = { link = "CursorLine" },
             -- indent-blankline
-            IndentBlankLineChar = { fg = C.overlay0 },
-            IndentBlankLineContextChar = { fg = C.blue },
+            IndentBlankLineChar        = { fg   = C.overlay0 },
+            IndentBlankLineContextChar = { fg   = C.blue },
             -- null-ls
-            NullLsInfoBorder = { link = "FloatBorder" },
+            NullLsInfoBorder           = { link = "FloatBorder" },
         }
     end,
 }

@@ -83,6 +83,7 @@ maps.n["<leader>u"] = { "<cmd>Neotree toggle float<cr>", desc = "toggle floating
 maps.n["<leader>ff"] = { "<cmd>Telescope find_files<cr>", desc = "find files in cwd, excluding .gitignore" }
 maps.n["<leader>fs"] = { "<cmd>Telescope live_grep<cr>", desc = "live grep string in cwd" }
 maps.n["<leader>fh"] = { "<cmd>Telescope help_tags<cr>", desc = "list available help tags" }
+maps.n["<leader>ft"] = { "<cmd>TodoTelescope<cr>", desc = "list all todo comments" }
 
 -- telescope notify history
 maps.n["<leader>mh"] = { "<cmd>Telescope notify<cr>", desc = "list notify history" }
@@ -90,6 +91,9 @@ maps.n["<leader>mh"] = { "<cmd>Telescope notify<cr>", desc = "list notify histor
 -- lazygit commands
 maps.n["<leader>gg"] = { "<cmd>LazyGit<cr>", desc = "LazyGit" }
 maps.n["<leader>gf"] = { "<cmd>LazyGitFilterCurrentFile<cr>", desc = "LazyGit on current file" }
+
+-- mini.align
+-- see lua/plugin/mini.lua
 
 -- gitsigns
 maps.n["]g"] = {
@@ -227,5 +231,6 @@ maps.n["[d"] = { "<cmd>Lspsaga diagnostic_jump_prev<cr>", desc = "jump to previo
 maps.n["]d"] = { "<cmd>Lspsaga diagnostic_jump_next<cr>", desc = "jump to next diagnostic in buffer" }
 maps.n["K"] = { "<cmd>Lspsaga hover_doc<cr>", desc = "show documentations" }
 maps.n["<leader>ol"] = { "<cmd>Lspsaga outline<cr>", desc = "show outline" }
+maps.n["<leader>xt"] = { "<cmd>TodoTrouble<cr>", desc = "show todo comments" }
 
 utils.set_mappings(maps)

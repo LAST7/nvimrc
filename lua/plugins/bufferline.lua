@@ -23,8 +23,8 @@ return {
                 show_tab_indicators = true,
                 indicator = {
                     icon = "▎", --'', '>>'
-                    style = "icon",
-                    -- style = "underline",
+                    -- style = "icon",
+                    style = "underline",
                 },
                 enforce_regular_tabs = false,
                 view = "multiwindow",
