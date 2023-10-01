@@ -13,7 +13,6 @@ return {
     "glepnir/lspsaga.nvim",
     event = "VeryLazy",
     branch = "main",
-    config = function()
-        require("lspsaga").setup(config)
-    end,
+
+    opts = config,
 } -- enhanced lsp uis

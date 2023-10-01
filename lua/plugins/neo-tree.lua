@@ -82,7 +82,5 @@ return {
         "MunifTanjim/nui.nvim",
     },
 
-    config = function()
-        require("neo-tree").setup(config)
-    end,
+    opts = config,
 }

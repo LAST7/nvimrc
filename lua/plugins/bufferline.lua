@@ -1,6 +1,6 @@
 return {
     "akinsho/bufferline.nvim",
-    version = "v3.*",
+    version = "*",
     event = "VeryLazy",
     dependencies = {
         "catppuccin",

@@ -33,7 +33,6 @@ local config = {
 return {
     "lewis6991/gitsigns.nvim", -- show line modifications on left hand side
     event = "VeryLazy",
-    config = function()
-        require("gitsigns").setup(config)
-    end,
+
+    opts = config,
 }

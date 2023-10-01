@@ -89,8 +89,8 @@ local config = {
             NeoTreeTabSeparatorInactive = { link = "Pmenu" },
             NeoTreeTabSeparatorActive   = { link = "CursorLine" },
             -- indent-blankline
-            IndentBlankLineChar        = { fg   = C.overlay0 },
-            IndentBlankLineContextChar = { fg   = C.blue },
+            IblIndent                  = { fg = C.overlay0 },
+            IblScope                   = { fg = C.blue },
             -- null-ls
             NullLsInfoBorder           = { link = "FloatBorder" },
         }

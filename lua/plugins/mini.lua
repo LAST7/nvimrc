@@ -52,12 +52,8 @@ local align_config = {
 }
 
 return {
-    {
-        "echasnovski/mini.align",
-        version = "*",
+    "echasnovski/mini.align",
+    version = "*",
 
-        config = function()
-            require("mini.align").setup(align_config)
-        end,
-    },
+    opts = align_config,
 }

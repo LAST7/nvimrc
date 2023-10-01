@@ -1,14 +1,24 @@
 local config = {
-    show_end_of_line = true,
-    show_current_context = true,
-    indent_blankline_show_trailing_blankline_indent = false,
+    scope = {
+        enabled = true,
+        show_start = false,
+        show_end = false,
+        injected_languages = false,
+        include = {
+            node_type = {
+                ['*'] = { "*" },
+            },
+        },
+    },
+    indent = {
+        char = '▎'
+    }
 }
 
 return {
     "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
     event = "VeryLazy",
 
-    config = function()
-        require("indent_blankline").setup(config)
-    end,
+    opts = config,
 }

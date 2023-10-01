@@ -76,7 +76,5 @@ return {
         "nvim-lua/plenary.nvim",
     },
 
-    config = function()
-        require("todo-comments").setup(config)
-    end,
+    opts = config,
 }

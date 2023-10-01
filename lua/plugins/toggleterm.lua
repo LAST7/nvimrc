@@ -37,7 +37,5 @@ return {
     version = "*",
     event = "VeryLazy",
 
-    config = function()
-        require("toggleterm").setup(config)
-    end,
+    opts = config,
 }

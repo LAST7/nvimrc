@@ -1,3 +1,10 @@
+local has_words_before = function()
+    unpack = unpack or table.unpack
+    local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+
+    return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+end
+
 return {
     "hrsh7th/nvim-cmp",
     event = "InsertEnter",
@@ -18,7 +25,6 @@ return {
 
         -- load vs-code like snippets from plugins (e.g. friendly-snippets)
         require("luasnip/loaders/from_vscode").lazy_load()
-        vim.opt.completeopt = "menu,menuone,noselect"
 
         -- extend snippet, making javascript react available for .js files
         luasnip.filetype_extend("typescript", { "javascript" })
@@ -47,12 +53,32 @@ return {
                 },
             },
             mapping = cmp.mapping.preset.insert({
-                ["<S-Tab>"] = cmp.mapping.select_prev_item(), -- previous suggestion
-                ["<Tab>"] = cmp.mapping.select_next_item(), -- next suggestion
+                ["<Tab>"] = cmp.mapping(function(fallback)
+                    if cmp.visible() then
+                        cmp.select_next_item()
+                    -- replace expand_or_jumpable() calls with expand_or_locally_jumpable()
+                    -- to only jump inside the snippet region
+                    elseif luasnip.expand_or_jumpable() then
+                        luasnip.expand_or_jump()
+                    elseif has_words_before() then
+                        cmp.complete()
+                    else
+                        fallback()
+                    end
+                end, { "i", "s" }),
+                ["<S-Tab>"] = cmp.mapping(function(fallback)
+                    if cmp.visible() then
+                        cmp.select_prev_item()
+                    elseif luasnip.jumpable(-1) then
+                        luasnip.jump(-1)
+                    else
+                        fallback()
+                    end
+                end, { "i", "s" }),
                 ["<C-b>"] = cmp.mapping.scroll_docs(-4),
                 ["<C-f>"] = cmp.mapping.scroll_docs(4),
-                ["<C-Space>"] = cmp.mapping.complete(), -- show completion suggestions
-                ["<C-e>"] = cmp.mapping.abort(), -- close completion window
+                ["<C-e>"] = cmp.mapping.complete(), -- show completion suggestions
+                ["<A-e>"] = cmp.mapping.abort(), -- close completion window
                 ["<CR>"] = cmp.mapping.confirm({ select = false }),
             }),
             -- sources for autocompletion

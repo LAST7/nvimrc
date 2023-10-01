@@ -131,7 +131,6 @@ return {
     dependencies = {
         "nvim-tree/nvim-web-devicons",
     },
-    config = function()
-        require("alpha").setup(config)
-    end,
+
+    opts = config,
 }

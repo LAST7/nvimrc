@@ -60,10 +60,12 @@ opt.listchars = {
     -- tab = "^I",
     tab = ">~",
     eol = "↴",
+    trail = "■",
 }
 
 -- enhance the completion function
 opt.wildmenu = true
+opt.completeopt = "menu,menuone,noselect"
 
 -- wait for mappings
 opt.timeout = true

@@ -27,7 +27,6 @@ return {
         "nvim-treesitter",
         "nvim-cmp",
     },
-    config = function()
-        require("tabout").setup(config)
-    end,
+
+    opts = config,
 }

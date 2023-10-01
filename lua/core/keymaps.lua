@@ -21,7 +21,7 @@ for _, mode in pairs({ "n", "v", "o", "x" }) do
     keymap.set(mode, "L", "$")
 end
 
--- change <C-d> and <C-u> to move 9 lines up/down
+-- change <C-d> and <C-u> to move 8 lines up/down
 for _, mode in pairs({ "n", "v", "o", "x" }) do
     keymap.set(mode, "<C-u>", "8k")
     keymap.set(mode, "<C-d>", "8j")
