@@ -1,9 +1,9 @@
-local has_words_before = function()
+--[[ local has_words_before = function()
     unpack = unpack or table.unpack
     local line, col = unpack(vim.api.nvim_win_get_cursor(0))
 
     return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
-end
+end ]]
 
 return {
     "hrsh7th/nvim-cmp",
@@ -24,10 +24,11 @@ return {
         local cmp = require("cmp")
 
         -- load vs-code like snippets from plugins (e.g. friendly-snippets)
-        require("luasnip/loaders/from_vscode").lazy_load()
+        require("luasnip.loaders.from_vscode").lazy_load()
 
         -- extend snippet, making javascript react available for .js files
         luasnip.filetype_extend("typescript", { "javascript" })
+        -- luasnip.filetype_extend("javascriptreact", { "javascript" })
 
         local WIDE_HEIGHT = 40
         local config = {
@@ -60,8 +61,8 @@ return {
                     -- to only jump inside the snippet region
                     elseif luasnip.expand_or_jumpable() then
                         luasnip.expand_or_jump()
-                    elseif has_words_before() then
-                        cmp.complete()
+                    -- elseif has_words_before() then
+                    --     cmp.complete()
                     else
                         fallback()
                     end
@@ -104,7 +105,7 @@ return {
                         path = "[Path]",
                         calc = "[Calc]",
                         luasnip = "[Lua]",
-                        fonts = "[Font]",
+                        -- fonts = "[Font]",
                     },
                 }),
             },
