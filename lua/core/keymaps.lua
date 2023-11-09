@@ -57,7 +57,7 @@ maps.n["<A-q>"] = { "<cmd>bp|sp|bn|bd!<cr>", desc = "close buffer" }
 for i = 1, 9 do
     maps.n["<A-" .. i .. ">"] = {
         function()
-            require("bufferline").go_to_buffer(i)
+            require("bufferline").go_to(i)
         end,
     }
 end

@@ -62,7 +62,7 @@ local options = {
         type = "group",
         val = {
             button("SPC n", "  New File", ":ene <BAR> startinsert <CR>"),
-            button("SPC f", "  Find File", ":Telescope find_files<CR>"),
+            button("SPC f", "  Find File", ":Telescope fd<CR>"), -- require package 'fd' installed
             button("SPC r", "  Recent File", ":Telescope oldfiles<CR>"),
             button("SPC w", "  Find Word", ":Telescope live_grep<CR>"),
             button("SPC b", "  Bookmarks", ":Telescope marks<CR>"),

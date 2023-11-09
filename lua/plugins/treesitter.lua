@@ -13,12 +13,13 @@ local parsers = {
     "xml",
     "markdown",
     "markdown_inline",
-    "svelte",
-    "graphql",
+    -- "svelte",
+    -- "graphql",
     "bash",
     "lua",
     "python",
     "vim",
+    "vimdoc",
     "dockerfile",
     "gitignore",
 }
@@ -27,12 +28,27 @@ local config = {
     -- enable syntax highlighting
     highlight = {
         enable = true,
-        additional_vim_regex_highlighting = true,
+        -- additional_vim_regex_highlighting = false,
     },
     -- enable indentation
     indent = { enable = true, disable = { "python" } },
     -- enable autotagging (w/ nvim-ts-autotag plugin)
-    autotag = { enable = true },
+    autotag = { enable = true, disable = { "javascriptreact" } },
+    textobjects = {
+        -- TODO: mapping to switch the selections
+        select = {
+            enable = true,
+            lookahead = true,
+            keymaps = {
+                ["af"] = "@function.outer",
+                ["if"] = "@function.inner",
+                ["ac"] = "@class.outer",
+                ["ic"] = "@class.inner",
+                ["ap"] = "@parameter.outer",
+                ["ip"] = "@parameter.inner",
+            },
+        },
+    },
     -- ensure these language parsers are installed
     ensure_installed = parsers,
     -- auto install above language parsers
@@ -48,7 +64,12 @@ return {
     end,
     dependencies = {
         "windwp/nvim-ts-autotag",
+        "nvim-treesitter/nvim-treesitter-textobjects",
     },
 
-    opts = config,
+    config = function()
+        -- treesitter uses weird way of loading user config
+        require("nvim-treesitter.configs").setup(config)
+        require("nvim-treesitter").setup()
+    end,
 }

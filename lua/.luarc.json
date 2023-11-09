@@ -54,5 +54,6 @@
         "/home/last/.local/share/nvim/lazy/mason-null-ls.nvim/lua",
         "/home/last/.config/nvim/lua",
         "${3rd}/luv/library"
-    ]
+    ],
+    "workspace.checkThirdParty": false
 }

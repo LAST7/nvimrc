@@ -16,6 +16,9 @@ return {
                 -- "formatting.prettier.with({disabled_filetypes: {}})" (see null-ls docs)
                 -- set tab width
                 formatting.prettier.with({
+                    disabled_filetypes = {
+                        "json",
+                    },
                     extra_args = function()
                         return {
                             "--tab-width",
@@ -33,7 +36,7 @@ return {
                         }
                     end,
                 }), -- lua formatter
-                formatting.sqlfmt,
+                formatting.sqlfmt, -- sql formatter
                 diagnostics.codespell,
                 diagnostics.eslint_d.with({ -- js/ts linter
                     -- only enable eslint if root has .eslintrc.js

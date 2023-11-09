@@ -1,13 +1,17 @@
 local opt = vim.opt -- for conciseness
 
 -- neovide settings
-opt.guifont = "FiraCode Nerd Font:h11"
+if vim.g.neovide then
+    opt.guifont = "FiraCode Nerd Font:h11"
 
-vim.g.neovide_fullscreen = false
-vim.g.neovide_transparency = 0.75
--- vim.g.neovide_scale_factor = 0.95
+    vim.g.neovide_fullscreen = false
+    vim.g.neovide_transparency = 0.75
+    vim.g.neovide_hide_mouse_when_typing = true
+    -- vim.g.neovide_scale_factor = 0.95
 
-vim.g.neovide_hide_mouse_when_typing = true
+    -- frame rate display
+    -- vim.g.neovide_profiler = true
+end
 
 -- line numbers
 opt.number = true -- shows absolute line number on cursor line
