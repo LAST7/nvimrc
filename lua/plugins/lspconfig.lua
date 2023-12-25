@@ -33,26 +33,34 @@ return {
             capabilities = capabilities,
         })
 
-        -- configure css server
-        --[[ require("lspconfig")["cssls"].setup({
-            capabilities = capabilities,
-        }) ]]
-
-        -- configure html server
-        --[[ require("lspconfig")["html"].setup({
-            capabilities = capabilities,
-        }) ]]
-
         -- configure emmet language server
         require("lspconfig")["emmet_language_server"].setup({
             capabilities = capabilities,
-            filetypes = { "css", "eruby", "html", "javascript", "javascriptreact", "less", "sass", "scss", "svelte", "pug", "typescriptreact", "vue" },
+            filetypes = {
+                "css",
+                "eruby",
+                "html",
+                -- "javascript",
+                "javascriptreact",
+                "less",
+                "sass",
+                "scss",
+                "svelte",
+                "pug",
+                "typescriptreact",
+                "vue",
+            },
+        })
+
+        --configure typescript server
+        require("lspconfig")["tsserver"].setup({
+            capabilities = capabilities,
         })
 
         -- configure javascript/typescript language server
-        require("lspconfig")["vtsls"].setup({
-            capabilities = capabilities,
-        })
+        -- require("lspconfig")["vtsls"].setup({
+        --     capabilities = capabilities,
+        -- })
 
         -- configure pyright server
         require("lspconfig")["pyright"].setup({

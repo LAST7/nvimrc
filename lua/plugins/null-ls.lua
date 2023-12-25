@@ -36,6 +36,7 @@ return {
                         }
                     end,
                 }), -- lua formatter
+                formatting.autopep8, -- python formatter
                 formatting.sqlfmt, -- sql formatter
                 diagnostics.codespell,
                 diagnostics.eslint_d.with({ -- js/ts linter

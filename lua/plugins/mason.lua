@@ -7,10 +7,7 @@ local config = {
 local mason_lspconfig = {
     -- list of servers for mason to install
     ensure_installed = {
-        "html",
-        "cssls",
         "lua_ls",
-        "emmet_ls",
         "clangd",
         "pyright",
     },
