@@ -26,7 +26,7 @@ local highlight_groups = function(C)
         FlashLabel = { fg = C.crust, bg = C.red },
         FlashMatch = { fg = C.text, bg = C.surface2 },
         FlashCurrent = { fg = C.surface1, bg = C.blue },
-        -- neo-tree
+        --[[ -- neo-tree
         NeoTreeFloatBorder = { link = "FloatBorder" },
         NeoTreeTabInactive = { link = "Pmenu" },
         NeoTreeTabActive = { link = "CursorLine" },
@@ -34,7 +34,7 @@ local highlight_groups = function(C)
         NeoTreeTabSeparatorActive = { link = "CursorLine" },
         -- indent-blankline
         IblIndent = { fg = C.overlay0 },
-        IblScope = { fg = C.blue },
+        IblScope = { fg = C.blue }, ]]
         -- null-ls
         NullLsInfoBorder = { link = "FloatBorder" },
     }
@@ -69,16 +69,23 @@ local config = {
     integrations = {
         alpha = true,
         cmp = true,
+        flash = false,
         gitsigns = true,
-        hop = true,
-        telescope = true,
-        treesitter_context = true,
-        nvimtree = true,
-        markdown = true,
+        indent_blankline = {
+            enabled = true,
+            scope_color = "blue",
+            colored_indent_levels = true,
+        },
         lsp_trouble = true,
+        markdown = true,
         mason = true,
+        neotree = true,
         noice = true,
         notify = true,
+        telescope = {
+            enabled = true,
+        },
+        treesitter_context = true,
         which_key = true,
         native_lsp = {
             enable = true,
@@ -93,6 +100,9 @@ local config = {
                 hints = { "underline" },
                 warnings = { "underline" },
                 information = { "underline" },
+            },
+            inlay_hints = {
+                background = true,
             },
         },
     },

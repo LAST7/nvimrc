@@ -36,7 +36,7 @@ return {
                 -- section_separators = " "
                 -- section_separators = { left = "", right = "" },
                 -- section_separators = { left = '', right = '' },
-                section_separators = { left = '', right = '' },
+                section_separators = { left = "", right = "" },
                 -- section_separators = '|',
             },
             sections = {
