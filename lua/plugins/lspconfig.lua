@@ -57,11 +57,6 @@ return {
             capabilities = capabilities,
         })
 
-        -- configure javascript/typescript language server
-        -- require("lspconfig")["vtsls"].setup({
-        --     capabilities = capabilities,
-        -- })
-
         -- configure pyright server
         require("lspconfig")["pyright"].setup({
             capabilities = capabilities,

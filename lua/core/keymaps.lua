@@ -48,6 +48,10 @@ maps.n["<leader>sx"] = { "<cmd>close<cr>", desc = "close current split window" }
 -- Plugin Keybinds
 ----------------------
 
+-- bookmark
+maps.n["<leader>ma"] = { "<cmd>Telescope vim_bookmarks all<cr>", desc = "pick all bookmarks" }
+maps.n["<leader>mc"] = { "<cmd>Telescope vim_bookmarks current_file<cr>", desc = "pick bookmarks in current file" }
+
 -- bufferline
 maps.n["<A-o>"] = { "<cmd>enew<cr>", desc = "open new buffer" }
 maps.n["<A-h>"] = { "<cmd>BufferLineCyclePrev<cr>", desc = "nevigate to prev buffer" }
