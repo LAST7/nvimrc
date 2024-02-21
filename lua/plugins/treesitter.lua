@@ -10,7 +10,7 @@ local parsers = {
     "yaml",
     "html",
     "css",
-    "xml",
+    -- "xml",
     "markdown",
     "markdown_inline",
     -- "svelte",
@@ -33,7 +33,7 @@ local config = {
     -- enable indentation
     indent = { enable = true, disable = { "python" } },
     -- enable autotagging (w/ nvim-ts-autotag plugin)
-    autotag = { enable = true, disable = { "javascriptreact" } },
+    autotag = { enable = true, disable = { "javascriptreact", "typescriptreact" } },
     textobjects = {
         -- TODO: mapping to switch the selections
         select = {
