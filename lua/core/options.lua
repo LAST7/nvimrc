@@ -13,6 +13,9 @@ if vim.g.neovide then
     -- vim.g.neovide_profiler = true
 end
 
+-- disable EditorConfig
+vim.g.editorconfig = false
+
 -- line numbers
 opt.number = true -- shows absolute line number on cursor line
 opt.relativenumber = true
