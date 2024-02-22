@@ -66,6 +66,12 @@ return {
             },
         })
 
+        -- configure tail wind css server
+        require("lspconfig")["tailwindcss"].setup({
+            capabilities = capabilities,
+            handlers = handlers,
+        })
+
         -- configure pyright server
         require("lspconfig")["pyright"].setup({
             capabilities = capabilities,

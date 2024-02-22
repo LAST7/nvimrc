@@ -16,7 +16,7 @@ maps.i["jj"] = "<ESC>"
 maps.n["U"] = "<C-r>"
 
 -- map H to ^ and L to $
-for _, mode in pairs({ "n", "v", "o", "x" }) do
+for _, mode in pairs({ "n", "v", "o" }) do
     keymap.set(mode, "H", "^")
     keymap.set(mode, "L", "$")
 end
@@ -90,7 +90,9 @@ maps.n["<leader>fh"] = { "<cmd>Telescope help_tags<cr>", desc = "list available 
 maps.n["<leader>ft"] = { "<cmd>TodoTelescope<cr>", desc = "list all todo comments" }
 
 -- telescope notify history
-maps.n["<leader>mh"] = { "<cmd>Telescope notify<cr>", desc = "list notify history" }
+maps.n["<leader>mh"] = { "<cmd>Noice telescope<cr>", desc = "open message history in Telescope" }
+maps.n["<leader>md"] = { "<cmd>Noice dismiss<cr>", desc = "dismiss all visible messages" }
+maps.n["<leader>ml"] = { "<cmd>Noice last<cr>", desc = "show the last message in a popup" }
 
 -- lazygit commands
 maps.n["<leader>gg"] = { "<cmd>LazyGit<cr>", desc = "LazyGit" }

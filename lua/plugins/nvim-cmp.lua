@@ -28,7 +28,7 @@ return {
 
         -- extend snippet, making javascript react available for .js files
         luasnip.filetype_extend("typescript", { "javascript" })
-        -- luasnip.filetype_extend("javascriptreact", { "javascript" })
+        luasnip.filetype_extend("typescriptreact", { "javascript" })
 
         local WIDE_HEIGHT = 40
         local config = {
