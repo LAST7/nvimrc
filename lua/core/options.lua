@@ -7,7 +7,7 @@ if vim.g.neovide then
     vim.g.neovide_fullscreen = false
     vim.g.neovide_transparency = 0.8
     vim.g.neovide_hide_mouse_when_typing = true
-    -- vim.g.neovide_scale_factor = 0.95
+    vim.g.neovide_scale_factor = 1
 
     -- frame rate display
     -- vim.g.neovide_profiler = true
