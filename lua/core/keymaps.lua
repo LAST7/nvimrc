@@ -88,6 +88,15 @@ maps.n["<leader>ff"] = { "<cmd>Telescope find_files<cr>", desc = "find files in 
 maps.n["<leader>fs"] = { "<cmd>Telescope live_grep<cr>", desc = "live grep string in cwd" }
 maps.n["<leader>fh"] = { "<cmd>Telescope help_tags<cr>", desc = "list available help tags" }
 maps.n["<leader>ft"] = { "<cmd>TodoTelescope<cr>", desc = "list all todo comments" }
+maps.n["<leader>/"] = {
+    function()
+        require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
+            winblend = 10,
+            previewer = false,
+        }))
+    end,
+    desc = "fuzzy find in current buffer",
+}
 
 -- telescope notify history
 maps.n["<leader>mh"] = { "<cmd>Noice telescope<cr>", desc = "open message history in Telescope" }
