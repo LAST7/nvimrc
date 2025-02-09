@@ -1,10 +1,3 @@
---[[ local has_words_before = function()
-    unpack = unpack or table.unpack
-    local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-
-    return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
-end ]]
-
 return {
     "hrsh7th/nvim-cmp",
     event = "InsertEnter",
@@ -26,7 +19,9 @@ return {
         -- load vs-code like snippets from plugins (e.g. friendly-snippets)
         require("luasnip.loaders.from_vscode").lazy_load()
 
-        -- extend snippet, making javascript react available for .js files
+        -- extend snippet, making javascript react available for .ts/.tsx files
+        -- BUG: js snippets are not available in .ts files,
+        -- while they are available in .tsx files.
         luasnip.filetype_extend("typescript", { "javascript" })
         luasnip.filetype_extend("typescriptreact", { "javascript" })
 

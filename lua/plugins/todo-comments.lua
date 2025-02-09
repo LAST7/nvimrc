@@ -72,7 +72,7 @@ local config = {
 
 return {
     "folke/todo-comments.nvim",
-    depedencies = {
+    dependencies = {
         "nvim-lua/plenary.nvim",
     },
 

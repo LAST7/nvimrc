@@ -7,7 +7,7 @@ if vim.g.neovide then
     vim.g.neovide_fullscreen = false
     vim.g.neovide_transparency = 0.8
     vim.g.neovide_hide_mouse_when_typing = true
-    vim.g.neovide_scale_factor = 1
+    vim.g.neovide_scale_factor = 1.25
 
     -- frame rate display
     -- vim.g.neovide_profiler = true
@@ -28,6 +28,14 @@ opt.tabstop = 4 -- 4 spaces for tabs
 opt.shiftwidth = 4 -- 4 spaces for indent width
 opt.expandtab = true -- expand tab to spaces
 opt.autoindent = true -- copy indent from current line when starting new one
+
+-- 2 spaces for c & cpp
+--[[ vim.api.nvim_create_autocmd({ "BufEnter", "FileType" }, {
+    pattern = { "c", "cpp" },
+    callback = function()
+        vim.opt_local.tabstop = 4
+    end,
+}) ]]
 
 -- search settings
 opt.ignorecase = true -- ignore case when searching
@@ -85,4 +93,4 @@ opt.incsearch = true
 opt.mouse = "a"
 
 -- the reference line on the right side
-opt.colorcolumn = "90"
+opt.colorcolumn = "80"

@@ -33,6 +33,13 @@ return {
                         }
                     end,
                 }), -- lua formatter
+                formatting.clang_format.with({
+                    disabled_filetypes = {
+                        "JSON",
+                        "Java",
+                        "JavaScript",
+                    },
+                }), -- C/C++ formatter
                 formatting.autopep8, -- python formatter
                 formatting.sqlfmt, -- sql formatter
                 -- diagnostics.codespell,
@@ -61,21 +68,6 @@ return {
                         desc = "format the buffer with null-ls formatter",
                     }
                     utils.set_mappings(maps)
-                    -- configure format on save
-                    --[[ vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-                    vim.api.nvim_create_autocmd("BufWritePre", {
-                        group = augroup,
-                        buffer = bufnr,
-                        callback = function()
-                            vim.lsp.buf.format({
-                                filter = function(client)
-                                    --  only use null-ls for formatting instead of lsp server
-                                    return client.name == "null-ls"
-                                end,
-                                bufnr = bufnr,
-                            })
-                        end,
-                    }) ]]
                 end
             end,
         }

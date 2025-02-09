@@ -42,6 +42,12 @@ return {
             handlers = handlers,
         })
 
+        -- configure cmake
+        require("lspconfig")["cmake"].setup({
+            capabilities = capabilities,
+            handlers = handlers,
+        })
+
         -- configure xml server
         --[[ require("lspconfig")["lemminx"].setup({
             capabilities = capabilities,

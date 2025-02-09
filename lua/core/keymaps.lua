@@ -28,7 +28,7 @@ for _, mode in pairs({ "n", "v", "o", "x" }) do
 end
 
 -- clear search highlights
-maps.n["<leader>nh"] = { "<cmd>nohl<cr>", desc = "clear search highlights" }
+maps.n["<leader>h"] = { "<cmd>nohl<cr>", desc = "clear search highlights" }
 
 -- delete single character without copying into register
 maps.n["x"] = '"_x'
@@ -230,9 +230,8 @@ maps.n["<leader>ll"] = {
 maps.n["<leader>rs"] = { "<cmd>LspRestart<cr>", desc = "restart lsp server" }
 
 -- troubles
-maps.n["<leader>xx"] = { "<cmd>TroubleToggle<cr>", desc = "toggle trouble panel" }
-maps.n["<leader>xc"] = { "<cmd>TroubleToggle workspace_diagnostics<cr>", desc = "toggle trouble in current workspace" }
-maps.n["gR"] = { "<cmd>TroubleToggle lsp_references<cr>", desc = "toggle trouble reference" }
+maps.n["<leader>xx"] = { "<cmd>Trouble diagnostics toggle<cr>", desc = "toggle trouble panel" }
+maps.n["gR"] = { "<cmd>Trouble lsp toggle focus=true win.position=bottom<cr>", desc = "toggle trouble reference" }
 
 maps.n["gh"] = { "<cmd>Lspsaga finder<cr>", desc = "show definition and reference" }
 maps.n["gD"] = { "<cmd>Lspsaga goto_definition<cr>", desc = "go to definition" }

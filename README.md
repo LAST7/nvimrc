@@ -1,10 +1,15 @@
-# Neovim configuration written in lua
+> [!WARNING]
+> This configuration has been deprecated. See [nvimrc-astro](https://github.com/LAST7/nvimrc-astro) instead.
+
+# My Neovim Configuration
 
 ## Colorscheme
 
 - [catppuccin-mocha](https://github.com/catppuccin/nvim)
-![screenshot](./screenshots/screenshot_1.png)
-![screenshot](./screenshots/screenshot_2.png)
+  ![screenshot](./screenshots/screenshot_1.png)
+  ![screenshot](./screenshots/screenshot_2.png)
+
+_screenshots are outdated_
 
 ## List of plugins (managed by Lazy)
 
